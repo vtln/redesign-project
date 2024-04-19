@@ -1,0 +1,1510 @@
+/*
+    Created by: Ivy Nguyen - 1001624506
+    Created on: 3/1/2024
+    Updated on: 3/5/2024
+    Project: Personal Portfolio
+*/
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Grid */
+    --number-of-columns: 12;
+    --grid-width: calc(100% / var(--number-of-columns));
+
+    --col-1: calc(var(--grid-width) * 1);
+    --col-2: calc(var(--grid-width) * 2);
+    --col-3: calc(var(--grid-width) * 3);
+    --col-4: calc(var(--grid-width) * 4);
+    --col-5: calc(var(--grid-width) * 5);
+    --col-6: calc(var(--grid-width) * 6);
+    --col-7: calc(var(--grid-width) * 7);
+    --col-8: calc(var(--grid-width) * 8);
+    --col-9: calc(var(--grid-width) * 9);
+    --col-10: calc(var(--grid-width) * 10);
+    --col-11: calc(var(--grid-width) * 11);
+    --col-12: calc(var(--grid-width) * 12);
+
+    /* Branding */
+    --primary: hsla(259, 21%, 36%, 1);
+    --primary-hover: hsla(259, 1%, 0%, 1);/* (x, -20%, -40%, 1) */
+    --secondary: hsla(35, 100%, 74%, 1);
+    --secondary-hover: rgb(190, 128, 42);
+    --secondary-blurred: hsla(35, 90%, 24%, 1); /* (x, +10%, -10%, 1) */
+    --tertiary: hsla(256, 12%, 61%, 1);
+    --tertiary-hover: hsla(256, 0%, 21%, 1);
+
+    
+    --font-color: #1d1d1d;
+
+    --gray-0: #333333;
+    --gray-1: #666666;
+    --gray-2: #999999;
+    --gray-3: #dadada;
+    --gray-4: #efefef;
+
+    --white: white;
+
+    /* Typography */
+    --font-size: 20px;
+    --scale: 1.618;
+    --line-height: calc(1em * var(--scale)); /* line height would equal 1em * the scale */
+    --h4: 1rem;
+    --h3: calc(1rem * var(--scale)); /* 1.618rem */
+    --h2: calc(var(--h3) * var(--scale)); /* 1.618rem * 1.618 */
+    --h1: calc(var(--h2) * var(--scale)); /* (1.618rem * 1.618) * 1.618 */
+
+    /* Other */
+    --table-padding: 1.618rem;
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    flex: 0 0 10rem;
+    display: block;
+    overflow: hidden;
+    background: url(../images/logo.png) no-repeat center/contain transparent;
+    width: 10rem;
+    height: 5rem;
+    text-indent: -9999px;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    background-color: var(--primary);
+    border: 0 none;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center; 
+    cursor:pointer;
+}
+
+.navigation {
+    flex: 0 0 100%;
+}
+
+.navigation.collapse .navbar-nav {
+    display: none;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar-nav li {
+    padding: .5rem;
+}
+
+.navbar-nav li > a {
+    color: var(--primary);
+    display: block;
+    overflow: hidden;
+    padding: calc((1em / var(--scale)) / var(--scale)) calc(1em / var(--scale));
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    font-weight: bold;
+}
+
+.navbar-nav li.active > a {
+    border-bottom-color: var(--primary);
+}
+
+.navbar-nav li > a:hover { /* greater than sign means selects all the anchor tags that are direct children that is inside navbar-nav */
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.dropdown-toggle::after {
+    content: "\f077";
+    font-family: "FontAwesome";
+    font-weight: 400;
+    margin-left: var(--line-height);
+}
+
+
+.dropdown.collapse .dropdown-toggle::after {
+    content: "\f078";
+}
+
+.dropdown.collapse .dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu {
+    background-color: var(--gray-2);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-menu > a {
+    flex: 1 0 100%;
+    color: var(--white);
+    padding: calc((1em / var(--scale)) / var(--scale)) calc(1em / var(--scale));
+    text-decoration: none;
+}
+
+.dropdown-menu > a:hover {
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+.sr-only {
+    position: absolute; 
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+@media screen and (min-width: 768px){
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navigation {
+        flex: 0 0 auto;
+    }
+
+    .navigation.collapse .navbar-nav,
+    .navbar-nav {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        align-items: baseline;
+        align-content: center;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+    }
+}
+/* End of Navigation Styles */
+
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    font-family: 'Raleway', 'Arial', 'Helvetica', sans-serif;
+    background-color: #FFFCF5;
+    font-color: var(--gray-0)
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+    padding: 2rem;
+    background-color: var(--gray-4);
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+button[class^=carousel-control] {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    padding: 0;
+    color: var(--primary);
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.15s ease;
+    font-size: 1rem;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+button[class^=carousel-control]:hover {
+    color: var(--primary);
+    outline: 0;
+    opacity: 0.9;
+}
+
+/* End of Carousel Styles */
+
+
+/* Images */
+img {
+    max-width: 100%;
+}
+
+.round-image {
+    border-radius: 50%;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.round-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* End of Images */
+
+/* TASK: Paste your typography styles here */
+h1, h2, h3, h3, h4, h5, h6
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Raleway", 'Arial', 'Helvetica', sans-serif;
+    line-height: var(calc(--line-height / 2));
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+h4, .h4 { 
+    font-size: var(--h4);
+}
+
+h3, .h3 {
+    font-size: var(--h3);
+    
+}
+
+h2, .h2 {
+    font-size: var(--h2);
+    color: var(--primary);
+}
+
+h1, .h1 {
+    font-size: var(--h1); 
+    color: var(--primary);
+}
+
+/* Paragraph */
+
+p {
+    margin-bottom: var(--line-height);
+    font-family: 'Raleway', 'Arial', 'Helvetica', sans-serif;
+}
+
+/* End of Paragraph */
+
+/* Blockquotes */
+
+blockquote {
+    font-size: calc(1rem * var(--scale)); /* font size is 1rem * 1.618 */
+}
+
+blockquote footer {
+    font-size: 1rem;
+    background-color: var(--tertiary);
+}
+
+blockquote p:first-of-type::before {
+    content: open-quote; /* content can add any content | this adds opening quotation mark at the first instance of a paragraph inside of a blockquote */
+}
+
+blockquote p:last-of-type::after {
+    content: close-quote; /* this adds closing quotation mark at the end */
+}
+
+blockquote footer::before { /* parent to child relationship when using the space  */
+    content: "\2014"; /* adds an em dash before the footer  */
+    margin-right: calc(0.25rem * var(--scale)); /* content is a "brand new element" so this adds a margin to the content */
+}
+
+blockquote.text-center { /* there is an element inside of blockquote that has the name/class of "text-center"  */
+    text-align: center; /* center aligned */
+    color: var(--gray-0);
+    padding-bottom: 1rem;
+    font-weight: bold;
+}
+
+blockquote.text-right {
+    text-align: right; /* right aligned */
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+
+/* End of Blockquotes */
+
+/* List Styles */ 
+
+ul.unstyled {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.inline {
+    list-style-type: none;
+    padding: 0;
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    align-content: flex-start;
+    gap: var(--font-size);
+}
+
+/* End of List Styles */ 
+
+/* Description List */
+
+dl {
+    border-left: 3px solid var(--secondary);
+    padding: var(--line-height);
+    padding-right: 0;
+}
+
+dt {
+    margin-bottom: 1rem;
+}
+
+dd {
+    font-style: italic;
+    margin-bottom: var(--line-height);
+}
+
+dd:last-of-type {
+    margin-bottom: 0;
+}
+
+/* End Description List */
+
+
+/* End of Typography */
+
+/* Table Styles */
+table {
+    border-collapse: collapse;
+    border: 1px solid #1f1f1f;
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: calc(var(--table-padding) / 2) var(--table-padding);
+    border: 1px solid #1f1f1f;
+    vertical-align: top;
+}
+
+thead {
+    background-color: #1f1f1f;
+}
+
+thead th {
+    color: white;
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+tbody tr:hover {
+    background-color: #efefef;
+}
+
+caption {
+    caption-side: bottom;
+    text-align: left;
+    padding: calc(var(--table-padding) / 2) 0;
+}
+/* End of Table Styles */
+
+/* Footer Styles */
+footer {
+    margin-top: 3rem;
+    font-size: calc(var(--scale));
+    background-color: var(--gray-4);
+}
+
+footer h3,
+footer h4 {
+    margin-bottom: calc(1rem / var(--scale));
+}
+
+footer .footer-nav {
+    margin: 0;
+}
+
+footer .footer-nav a {
+    display: block;
+    overflow: hidden;
+    padding: calc((1em / var(--scale)) / var(--scale) / var(--scale)) calc(1em / var(--scale) / var(--scale));
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+footer .footer-nav a:hover {
+    color: var(--primary-hover);
+    border-bottom-color: var(--primary-hover);
+}
+
+footer .form-group label {
+    margin-top: 0;
+}
+
+footer .copyright {
+    background-color: var(--primary);
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: calc(1rem / 2);
+    
+}
+
+.copyright p {
+    color: var(--secondary);
+}
+
+
+footer p,
+footer .social-media {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+footer .social-media {
+    justify-content: center;
+}
+
+footer .social-media a {
+    display: block;
+    overflow: hidden;
+    color: var(--secondary);
+}
+
+.company-details {
+    padding-top: 1rem;
+    margin: 0;
+}
+
+@media screen and (min-width: 768px){
+    footer .copyright {
+        text-align: unset;
+    }
+
+    footer .social-media {
+        justify-content: flex-end;
+    }
+}
+/* End of Footer Styles */
+
+/* Code tag */
+code {
+    font-family: monospace;
+    color: crimson;
+    font-size: 0.75rem;
+    line-height: 1.618em;
+}
+/* End of code tag */
+
+/* Special classes */
+.w-14 {
+    width: 14rem;
+}
+/* End of Special classes */
+
+/* TASK: Paste your grid system here */
+.container-fluid,
+.container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 576px){ .container { max-width: 576px; }} /* sm */
+@media screen and (min-width: 768px){ .container { max-width: 768px; }} /* md */
+@media screen and (min-width: 992px){ .container { max-width: 992px; }} /* lg */
+@media screen and (min-width: 1200px){ .container { max-width: 1200px; }} /* xl */
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12,
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.col-1 {
+    flex: 0 0 var(--col-1);
+    max-width: var(--col-1);
+    background-color: var(--blue-1);
+}
+
+.col-2 {
+    flex: 0 0 var(--col-2);
+    max-width: var(--col-2);
+    background-color: var(--blue-2);
+}
+
+.col-3 {
+    flex: 0 0 var(--col-3);
+    max-width: var(--col-3);
+    background-color: var(--blue-3);
+}
+
+.col-4 {
+    flex: 0 0 var(--col-4);
+    max-width: var(--col-4);
+    background-color: var(--blue-4);
+}
+
+.col-5 {
+    flex: 0 0 var(--col-5);
+    max-width: var(--col-5);
+    background-color: var(--blue-5);
+}
+
+.col-6 {
+    flex: 0 0 var(--col-6);
+    max-width: var(--col-6);
+    background-color: var(--blue-6);
+}
+
+.col-7 {
+    flex: 0 0 var(--col-7);
+    max-width: var(--col-7);
+    background-color: var(--blue-1);
+}
+
+.col-8 {
+    flex: 0 0 var(--col-8);
+    max-width: var(--col-8);
+    background-color: var(--blue-2);
+}
+
+.col-9 {
+    flex: 0 0 var(--col-9);
+    max-width: var(--col-9);
+    background-color: var(--blue-3);
+}
+
+.col-10 {
+    flex: 0 0 var(--col-10);
+    max-width: var(--col-10);
+    background-color: var(--blue-4);
+}
+
+.col-11 {
+    flex: 0 0 var(--col-11);
+    max-width: var(--col-11);
+    background-color: var(--blue-5);
+}
+
+.col-12 {
+    flex: 0 0 var(--col-12);
+    max-width: var(--col-12);
+    background-color: var(--blue-6);
+}
+
+.col-xs-1 {
+    flex: 0 0 var(--col-1);
+    max-width: var(--col-1);
+    background-color: var(--blue-1);
+}
+
+.col-xs-2 {
+    flex: 0 0 var(--col-2);
+    max-width: var(--col-2);
+    background-color: var(--blue-2);
+}
+
+.col-xs-3 {
+    flex: 0 0 var(--col-3);
+    max-width: var(--col-3);
+    background-color: var(--blue-3);
+}
+
+.col-xs-4 {
+    flex: 0 0 var(--col-4);
+    max-width: var(--col-4);
+    background-color: var(--blue-4);
+}
+
+.col-xs-5 {
+    flex: 0 0 var(--col-5);
+    max-width: var(--col-5);
+    background-color: var(--blue-5);
+}
+
+.col-xs-6 {
+    flex: 0 0 var(--col-6);
+    max-width: var(--col-6);
+    background-color: var(--blue-6);
+}
+
+.col-xs-7 {
+    flex: 0 0 var(--col-7);
+    max-width: var(--col-7);
+    background-color: var(--blue-1);
+}
+
+.col-xs-8 {
+    flex: 0 0 var(--col-8);
+    max-width: var(--col-8);
+    background-color: var(--blue-2);
+}
+
+.col-xs-9 {
+    flex: 0 0 var(--col-9);
+    max-width: var(--col-9);
+    background-color: var(--blue-3);
+}
+
+.col-xs-10 {
+    flex: 0 0 var(--col-10);
+    max-width: var(--col-10);
+    background-color: var(--blue-4);
+}
+
+.col-xs-11 {
+    flex: 0 0 var(--col-11);
+    max-width: var(--col-11);
+    background-color: var(--blue-5);
+}
+
+.col-xs-12 {
+    flex: 0 0 var(--col-12);
+    max-width: var(--col-12);
+    background-color: var(--blue-6);
+}
+
+/* Styles for 'col-sm-...' grid */
+@media screen and (min-width: 576px){
+    .container {
+        max-width: 576px;
+    }
+    
+    .col-sm-1 {
+        flex: 0 0 var(--col-1);
+        max-width: var(--col-1);
+        background-color: var(--blue-1);
+    }
+    
+    .col-sm-2 {
+        flex: 0 0 var(--col-2);
+        max-width: var(--col-2);
+        background-color: var(--blue-2);
+    }
+    
+    .col-sm-3 {
+        flex: 0 0 var(--col-3);
+        max-width: var(--col-3);
+        background-color: var(--blue-3);
+    }
+    
+    .col-sm-4 {
+        flex: 0 0 var(--col-4);
+        max-width: var(--col-4);
+        background-color: var(--blue-4);
+    }
+    
+    .col-sm-5 {
+        flex: 0 0 var(--col-5);
+        max-width: var(--col-5);
+        background-color: var(--blue-5);
+    }
+    
+    .col-sm-6 {
+        flex: 0 0 var(--col-6);
+        max-width: var(--col-6);
+        background-color: var(--blue-6);
+    }
+    
+    .col-sm-7 {
+        flex: 0 0 var(--col-7);
+        max-width: var(--col-7);
+        background-color: var(--blue-1);
+    }
+    
+    .col-sm-8 {
+        flex: 0 0 var(--col-8);
+        max-width: var(--col-8);
+        background-color: var(--blue-2);
+    }
+    
+    .col-sm-9 {
+        flex: 0 0 var(--col-9);
+        max-width: var(--col-9);
+        background-color: var(--blue-3);
+    }
+    
+    .col-sm-10 {
+        flex: 0 0 var(--col-10);
+        max-width: var(--col-10);
+        background-color: var(--blue-4);
+    }
+    
+    .col-sm-11 {
+        flex: 0 0 var(--col-11);
+        max-width: var(--col-11);
+        background-color: var(--blue-5);
+    }
+    
+    .col-sm-12 {
+        flex: 0 0 var(--col-12);
+        max-width: var(--col-12);
+        background-color: var(--blue-6);
+    }
+}
+
+/* Styles for 'col-md-...' grid */
+@media screen and (min-width: 768px){
+    .container {
+        max-width: 768px;
+    }
+    
+    .col-md-1 {
+        flex: 0 0 var(--col-1);
+        max-width: var(--col-1);
+        background-color: var(--blue-1);
+    }
+    
+    .col-md-2 {
+        flex: 0 0 var(--col-2);
+        max-width: var(--col-2);
+        background-color: var(--blue-2);
+    }
+    
+    .col-md-3 {
+        flex: 0 0 var(--col-3);
+        max-width: var(--col-3);
+        background-color: var(--blue-3);
+    }
+    
+    .col-md-4 {
+        flex: 0 0 var(--col-4);
+        max-width: var(--col-4);
+        background-color: var(--blue-4);
+    }
+    
+    .col-md-5 {
+        flex: 0 0 var(--col-5);
+        max-width: var(--col-5);
+        background-color: var(--blue-5);
+    }
+    
+    .col-md-6 {
+        flex: 0 0 var(--col-6);
+        max-width: var(--col-6);
+        background-color: var(--blue-6);
+    }
+    
+    .col-md-7 {
+        flex: 0 0 var(--col-7);
+        max-width: var(--col-7);
+        background-color: var(--blue-1);
+    }
+    
+    .col-md-8 {
+        flex: 0 0 var(--col-8);
+        max-width: var(--col-8);
+        background-color: var(--blue-2);
+    }
+    
+    .col-md-9 {
+        flex: 0 0 var(--col-9);
+        max-width: var(--col-9);
+        background-color: var(--blue-3);
+    }
+    
+    .col-md-10 {
+        flex: 0 0 var(--col-10);
+        max-width: var(--col-10);
+        background-color: var(--blue-4);
+    }
+    
+    .col-md-11 {
+        flex: 0 0 var(--col-11);
+        max-width: var(--col-11);
+        background-color: var(--blue-5);
+    }
+    
+    .col-md-12 {
+        flex: 0 0 var(--col-12);
+        max-width: var(--col-12);
+        background-color: var(--blue-6);
+    }
+}
+
+/* Styles for 'col-lg-...' grid */
+@media screen and (min-width: 992px){
+    .container {
+        max-width: 992px;
+    }
+    
+    .col-lg-1 {
+        flex: 0 0 var(--col-1);
+        max-width: var(--col-1);
+        background-color: var(--blue-1);
+    }
+    
+    .col-lg-2 {
+        flex: 0 0 var(--col-2);
+        max-width: var(--col-2);
+        background-color: var(--blue-2);
+    }
+    
+    .col-lg-3 {
+        flex: 0 0 var(--col-3);
+        max-width: var(--col-3);
+        background-color: var(--blue-3);
+    }
+    
+    .col-lg-4 {
+        flex: 0 0 var(--col-4);
+        max-width: var(--col-4);
+        background-color: var(--blue-4);
+    }
+    
+    .col-lg-5 {
+        flex: 0 0 var(--col-5);
+        max-width: var(--col-5);
+        background-color: var(--blue-5);
+    }
+    
+    .col-lg-6 {
+        flex: 0 0 var(--col-6);
+        max-width: var(--col-6);
+        background-color: var(--blue-6);
+    }
+    
+    .col-lg-7 {
+        flex: 0 0 var(--col-7);
+        max-width: var(--col-7);
+        background-color: var(--blue-1);
+    }
+    
+    .col-lg-8 {
+        flex: 0 0 var(--col-8);
+        max-width: var(--col-8);
+        background-color: var(--blue-2);
+    }
+    
+    .col-lg-9 {
+        flex: 0 0 var(--col-9);
+        max-width: var(--col-9);
+        background-color: var(--blue-3);
+    }
+    
+    .col-lg-10 {
+        flex: 0 0 var(--col-10);
+        max-width: var(--col-10);
+        background-color: var(--blue-4);
+    }
+    
+    .col-lg-11 {
+        flex: 0 0 var(--col-11);
+        max-width: var(--col-11);
+        background-color: var(--blue-5);
+    }
+    
+    .col-lg-12 {
+        flex: 0 0 var(--col-12);
+        max-width: var(--col-12);
+        background-color: var(--blue-6);
+    }
+}
+
+/* Styles for 'col-xl-...' grid */
+@media screen and (min-width: 1200px){
+    .container {
+        max-width: 1200px;
+    }
+    
+    .col-xl-1 {
+        flex: 0 0 var(--col-1);
+        max-width: var(--col-1);
+        background-color: var(--blue-1);
+    }
+    
+    .col-xl-2 {
+        flex: 0 0 var(--col-2);
+        max-width: var(--col-2);
+        background-color: var(--blue-2);
+    }
+    
+    .col-xl-3 {
+        flex: 0 0 var(--col-3);
+        max-width: var(--col-3);
+        background-color: var(--blue-3);
+    }
+    
+    .col-xl-4 {
+        flex: 0 0 var(--col-4);
+        max-width: var(--col-4);
+        background-color: var(--blue-4);
+    }
+    
+    .col-xl-5 {
+        flex: 0 0 var(--col-5);
+        max-width: var(--col-5);
+        background-color: var(--blue-5);
+    }
+    
+    .col-xl-6 {
+        flex: 0 0 var(--col-6);
+        max-width: var(--col-6);
+        background-color: var(--blue-6);
+    }
+    
+    .col-xl-7 {
+        flex: 0 0 var(--col-7);
+        max-width: var(--col-7);
+        background-color: var(--blue-1);
+    }
+    
+    .col-xl-8 {
+        flex: 0 0 var(--col-8);
+        max-width: var(--col-8);
+        background-color: var(--blue-2);
+    }
+    
+    .col-xl-9 {
+        flex: 0 0 var(--col-9);
+        max-width: var(--col-9);
+        background-color: var(--blue-3);
+    }
+    
+    .col-xl-10 {
+        flex: 0 0 var(--col-10);
+        max-width: var(--col-10);
+        background-color: var(--blue-4);
+    }
+    
+    .col-xl-11 {
+        flex: 0 0 var(--col-11);
+        max-width: var(--col-11);
+        background-color: var(--blue-5);
+    }
+    
+    .col-xl-12 {
+        flex: 0 0 var(--col-12);
+        max-width: var(--col-12);
+        background-color: var(--blue-6);
+    }
+}
+
+/* TASK: Paste the styles for the Flexbox Assignment: In-Class Practice */
+
+
+/* Branding */
+.swatch {
+    aspect-ratio: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 1px solid var(--gray-0);
+}
+
+.swatch.primary { background-color: var(--primary) }
+.swatch.primary-hover { background-color: var(--primary-hover) }
+.swatch.secondary { background-color: var(--secondary) }
+.swatch.secondary-hover { background-color: var(--secondary-hover) }
+.swatch.tertiary { background-color: var(--tertiary) }
+.swatch.tertiary-hover { background-color: var(--tertiary-hover) }
+.swatch.font-color { background-color: var(--font-color) }
+.swatch.gray-0 { background-color: var(--gray-0) }
+.swatch.gray-1 { background-color: var(--gray-1) }
+.swatch.gray-2 { background-color: var(--gray-2) }
+.swatch.gray-3 { background-color: var(--gray-3) }
+.swatch.white { background-color: var(--white) }
+
+.swatch.primary,
+.swatch.primary-hover,
+.swatch.secondary,
+.swatch.secondary-hover,
+.swatch.tertiary,
+.swatch.tertiary-hover,
+.swatch.primary,
+.swatch.font-color,
+.swatch.gray-0,
+.swatch.gray-1 {
+    color: var(--white);
+}
+
+.btn {
+    font-size: 1rem; /*gets the # from the root from html*/
+    line-height: var(--line-height);
+    display: inline-block; /*makes it a block level element*/
+    overflow: hidden; /*buttons look wonky if u don't add this, constrains element*/
+    padding: calc((var(--line-height) / var(--scale))) var(--line-height);
+    background-color: var(--gray-1);
+    text-decoration: none; /*removes underline*/
+    color: var(--white);
+    border: 0 none;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background-color: var(--gray-0);
+}
+
+.btn.btn-primary { /*period is calling the parent and the child*/
+    background-color: var(--primary);
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+    color: white;
+}
+
+.btn.btn-tertiary {
+    background-color: var(--tertiary);
+}
+
+.btn.btn-tertiary:hover {
+    background-color: var(--tertiary-hover);
+}
+
+.btn.btn-sm {
+    font-size: calc(1em / var(--scale));
+}
+
+.btn.btn-lg {
+    font-size: var(--h3);
+}
+
+/* Forms */
+fieldset {
+    padding: var(--line-height);
+    margin-bottom: var(--line-height);
+}
+
+fieldset legend {
+    color: var(--primary);
+}
+
+.form-group {
+    margin-bottom: var(--line-height);
+}
+
+fieldset .form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control,
+.form-check-input {
+    accent-color: var(--secondary);
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: var(--line-height);
+    padding: calc((1em / var(--base-scale)) / var(--base-scale) / var(--base-scale)) calc(1em / var(--base-scale) / var(--base-scale));
+    border: 1px solid var(--gray-0);
+    color: var(--font-color);
+}
+
+label {
+    margin-bottom: calc(1rem / 2);
+}
+
+input.form-control {
+    width: 100%;
+    max-width: 100%;
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: calc(4 * var(--line-height));
+}
+
+/* Pseudo Selectors */
+.form-control:focus {
+    outline: var(--secondary-blurred) solid 2px;
+    outline-offset: 2px;
+}
+
+.form-check-input:checked {
+    box-shadow: 0 0 4px 4px var(--secondary-blurred);
+}
+
+.form-control:disabled,
+.form-control:hover:disabled,
+input:disabled,
+input:hover:disabled {
+    background-color: var(--gray-3);
+    color: var(--gray-2);
+    cursor: not-allowed;
+}
+
+input:invalid,
+input:focus:invalid {
+    border-color: var(--primary);
+    box-shadow: 0 0 2px var(--primary);
+    outline: var(--primary) solid 2px;
+    outline-offset: 2px;
+}
+
+
+/* End of Branding */
+
+/* Ivy's Styles */
+
+/* Universal */
+
+.icon {
+    margin-right: 1rem;
+}
+
+.fa {
+    color: var(--tertiary);
+}
+
+.project-img {
+    width: 100%;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.webNav {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.topContainer {
+    padding-top: 1rem;
+}
+
+
+/* End of Universal */
+
+/* Index Page */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 80vh;
+    background-image: url(/images/aboutUs.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(236, 232, 232, 0.795); 
+    z-index: 1; 
+}
+
+.hero-text {
+    position: relative; 
+    z-index: 2; 
+    width: 60%;
+}
+
+.mission {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 30rem;
+    background-color: var(--tertiary);
+}
+
+.yellow-bckground {
+    background-color: #FEE6C3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    width: 100%;
+    height: 20rem;
+    padding-top: 2rem;
+}
+
+.title-center {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.bckground {
+    background-color: var(--secondary);
+}
+
+.sponsor-logo img {
+    margin-top: 1rem;
+    width: 10rem;
+}
+
+.yellow {
+    background-color: #FEE6C3;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+/* End of Index Page */
+
+/* About Page */
+
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50vh;
+    background-image: url(/images/aboutUs.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(236, 232, 232, 0.795); 
+    z-index: 1; 
+}
+
+.about-hero-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding-top: 10rem;
+    position: relative; 
+    z-index: 2; 
+    width: 100%;
+}
+
+.about {
+    width: 100%;
+    height: 25rem;
+}
+
+.about-icon {
+    font-size: 40px;
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+}
+
+.stats h2 {
+    margin-top: 3rem;
+}
+
+.stats h1 {
+    color: var(--secondary);
+}
+
+@media screen and (max-width: 990px) {
+    .about {
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+.founder {
+    background-color: #FEE6C3;
+}
+
+
+.founder img {
+    width: 100%;
+    height: auto;
+    margin: 1rem;
+}
+
+.founder-text {
+    width: 80%;
+}
+
+/* End of About Page */
+
+/* Individual Projects Page */
+
+.btn-project {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.fa-person {
+    margin-right: 1.4rem;
+}
+
+.background {
+    width: 100%;
+    height: 70vh;
+}
+
+.bg-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 70vh;
+}
+
+.hero {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0;
+}
+
+.bg-description {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 12rem;
+}
+
+.bg-description h1 {
+    color: var(--tertiary);
+}
+
+.bg-description p {
+    color: #FFFCF5;
+    margin-top: 0;
+}
+
+
+/* End of Individual Projects Page */
+
+
+
+/* End of Ivy's Styles */
+
+
+/*
+    * Window size styles
+    * Do not edit or delete this from examples
+*/
+#windowSize {
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    user-select: none;
+    z-index: 10;
+}
+/* End of Window size styles */
