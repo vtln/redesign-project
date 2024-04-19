@@ -337,6 +337,7 @@ h1, .h1 {
 p {
     margin-bottom: var(--line-height);
     font-family: 'Raleway', 'Arial', 'Helvetica', sans-serif;
+    line-height: var(--line-height);
 }
 
 /* End of Paragraph */
@@ -1421,6 +1422,14 @@ img {
 }
 
 /* End of About Page */
+
+/* Ways to Help Page  */
+
+.help-hero {
+    background-image: url(/images/help-img.jpg);
+}
+
+/* End of Ways to Help Page */
 
 /* Individual Projects Page */
 
