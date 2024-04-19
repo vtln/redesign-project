@@ -216,7 +216,6 @@ body {
     margin: 0;
     font-family: 'Raleway', 'Arial', 'Helvetica', sans-serif;
     background-color: #FFFCF5;
-    font-color: var(--gray-0)
 }
 
 /* Carousel Styles */
@@ -1253,7 +1252,7 @@ input:focus:invalid {
 }
 
 img {
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .webNav {
@@ -1264,6 +1263,13 @@ img {
 .topContainer {
     padding-top: 1rem;
 }
+
+::placeholder {
+    padding-left: .5rem;
+    padding-top: .2rem;
+}
+
+
 
 
 /* End of Universal */
@@ -1280,6 +1286,12 @@ img {
     background-position: top center;
     background-size: cover;
     margin-bottom: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0;
 }
 
 
@@ -1341,6 +1353,13 @@ img {
     padding-bottom: 1rem;
 }
 
+.light-purple {
+    background-color: var(--tertiary);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
 /* End of Index Page */
 
 /* About Page */
@@ -1382,7 +1401,7 @@ img {
 
 .about {
     width: 100%;
-    height: 25rem;
+    height: 28rem;
 }
 
 .about-icon {
@@ -1429,72 +1448,38 @@ img {
     background-image: url(/images/help-img.jpg);
 }
 
+.help-section img {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 /* End of Ways to Help Page */
 
-/* Individual Projects Page */
+/* Volunteer Page  */
 
-.btn-project {
+.volunteer-hero {
+    background-image: url(/images/7.jpg);
+}
+
+.event-date h1, .event-date h3 {
+    margin: 0;
+}
+
+.event {
+    margin-top: 2rem;
+}
+
+.square-container {
+    aspect-ratio: 1;
+    border-radius: 10px;
+}
+
+.light-purple.volunteer {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    height: 45vh;
 }
 
-.fa-person {
-    margin-right: 1.4rem;
-}
-
-.background {
-    width: 100%;
-    height: 70vh;
-}
-
-.bg-img {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    object-position: center;
-    object-fit: cover;
-    width: 100%;
-    height: 70vh;
-}
-
-.hero {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 0;
-}
-
-.bg-description {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    gap: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 12rem;
-}
-
-.bg-description h1 {
-    color: var(--tertiary);
-}
-
-.bg-description p {
-    color: #FFFCF5;
-    margin-top: 0;
-}
-
-
-/* End of Individual Projects Page */
+/* End of Volunteer Page */
 
 
 
