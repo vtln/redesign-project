@@ -132,6 +132,10 @@
     border-radius: 5px;
 }
 
+.navbar-nav li > .btn-donate:hover {
+    border-radius: 30px;
+}
+
 .dropdown-toggle::after {
     content: "\f077";
     font-family: "FontAwesome";
@@ -1538,10 +1542,13 @@ img {
 .yellow.resource {
     border-radius: 10px;
     padding-left: 0;
-    padding-right: 0;
-    width: 50%;
-    height: 30vh;
+    padding-right: 1rem;
+    width: 100%;
+    height: 30vh; 
+}
 
+.r-spacing {
+    padding-bottom: 1rem;
 }
 
 /* End of Donate Resources Page */
