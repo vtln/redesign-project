@@ -1485,6 +1485,12 @@ img {
 
 }
 
+@media screen and (max-width: 767px) {
+    .event img {
+        display: none;
+    }
+}
+
 .founder {
     background-color: #FEE6C3;
 }
@@ -1521,17 +1527,29 @@ img {
     background-image: url(/images/7.jpg);
 }
 
-.event-date h1, .event-date h3 {
+.event-date h2, .event-date h3 {
     margin: 0;
+    text-align: center;
+}
+
+.yellow.square-container.event-date {
+    margin-top: 1.2rem;
 }
 
 .event {
+    padding-right: 0;
     margin-top: 2rem;
+    
+}
+
+.event img {
+    margin-top: 1rem;
 }
 
 .square-container {
     aspect-ratio: 1;
     border-radius: 10px;
+    width: 80%;
 }
 
 .light-purple.volunteer {
@@ -1556,7 +1574,7 @@ img {
 }
 
 .r-spacing {
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
 }
 
 /* End of Donate Resources Page */
@@ -1587,6 +1605,12 @@ img {
 
 /* End of 404 Page */
 
+/* Events Page */
+
+
+
+
+/* End of Events Page */
 
 /* End of Ivy's Styles */
 
