@@ -1373,7 +1373,12 @@ img {
 .yellow {
     background-color: #FEE6C3;
     padding-top: 2rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
+}
+
+.gray {
+    background-color: var(--gray-4);
+    border-radius: 10px;
 }
 
 .light-purple {
@@ -1537,10 +1542,17 @@ img {
 }
 
 .event {
-    padding-right: 0;
+    padding-right: 2rem;
     margin-top: 2rem;
-    
+
 }
+.event-space {
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 
 .event img {
     margin-top: 1rem;
@@ -1550,6 +1562,9 @@ img {
     aspect-ratio: 1;
     border-radius: 10px;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .light-purple.volunteer {
