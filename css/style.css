@@ -1302,7 +1302,20 @@ img {
     margin-top: 10rem;
 }
 
+.fail-message p {
+    margin: 0;
+    margin-top: .5rem;
+    color: rgb(192, 87, 87);
+}
 
+.fail-message {
+    margin-bottom: .5rem;
+}
+
+.fail-message span {
+    color: rgb(192, 87, 87);
+    margin-right: .5rem;
+}
 
 /* End of Universal */
 

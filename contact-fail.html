@@ -51,17 +51,62 @@
         </div>
         <!-- END OF NAV -->
 
-        <div class = "container">
+        <div class = "container topContainer">
             <div class = "row">
+                <div class = "col-lg-6 col-md-12">
+                    <h1 class = "home">Contact Us</h1>
+                    <p>Please feel free to contact me about anything at the contact form or any social media tags below.</p>             
 
-                <div class = "col-lg-12 col-md-12 col-xs-12 pass title-center">
-                    <i class="fa-solid fa-circle-check xlarge-icon"></i>
-                    <h1>THANK YOU!</h1>
-                    <h3>Your submission has been received.</h3>
-                    <a href = "contact.html" class = "btn btn-secondary">Contact Page</a>
-                    <a href = "index.html" class = "btn btn-secondary">Homepage</a>
+                    <p><span class = "fa fa-solid fa-phone icon" alt = "telephone icon"></span> (817)-123-4567 </p>
+
+                    <p><span class = "fa fa-regular fa-envelope icon" alt = "envelope icon"></span> c3hprs@yahoo.com</p>
+
+                    <p><span class = "fa fa-brands fa-facebook-f icon" alt = "facebook icon"></span> @2C3HINC</p>
+
                 </div>
 
+                <div class="col-lg-6 col-md-12">
+
+                    <form method="post" action="registration.php" name="registration">
+
+                            <h2>Send us a message</h2>
+                            <div class="form-group row fail-message">
+                                <label for="firstName" class="col-sm-4 col-form-label">Name:</label>
+                                <div class="col-xs-12 fail-message">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder = "John Doe" required />
+                                    <p><span class = "fa fa-solid fa-circle-exclamation" alt = "telephone icon"></span>Name is required for submission. </p>
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group row fail-message">
+                                <label for="subject" class="col-sm-4 col-form-label">Email:</label>
+                                <div class="col-xs-12">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="user@email.com" required/>
+                                    <p><span class = "fa fa-solid fa-circle-exclamation" alt = "telephone icon"></span>E-mail is required for submission. </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group row fail-message">
+                                <label for="subject" class="col-sm-4 col-form-label">Subject:</label>
+                                <div class="col-xs-12">
+                                    <input type="text" name="subject" id="subject" class="form-control" placeholder = "Reason to connect" required />
+                                    <p><span class = "fa fa-solid fa-circle-exclamation" alt = "telephone icon"></span>Subject is required for submission. </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="message" class="col-sm-4 col-form-label">Message:</label>
+                                <div class="col-xs-12">
+                                    <textarea type="text" name="message" id="message" class="form-control" placeholder = "Message" required></textarea>
+                                </div>
+                            </div>
+                        
+                        <input type="submit" name="submit" id="submit" value="Send Message" class="btn btn-primary" />
+                    </form>
+                    <a href = "contact-pass.html" class = "btn btn-tertiary">Pass</a>
+                    <a href = "contact-fail.html" class = "btn btn-tertiary">Fail</a>
+                </div>
             </div>
         </div>
 
