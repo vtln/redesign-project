@@ -12,44 +12,63 @@
     </head>
     <body>
 
-         <!-- NAV -->
-         <div class="container-fluid webNav">
-            <div class="row">
-                <div class="col-sm-12">
-                    <nav class="navbar">
-                        <a class="navbar-brand" href="index.html">Ivy Nguyen Personal Portfolio</a>
-                        <button class="navbar-toggler" type="button" data-target="#navigation">
-                            <span class="fa-solid fa-bars"></span> <!--  -->
-                        </button>
-
-                        <div class="navigation collapse" id="navigation">
-                            <ul class="navbar-nav"> <!-- -->
-                                <li>
-                                    <a href="index.html">Home </a>  <!-- span sr-only means for screen readers only, this would change based on the page we're on -->
-                                </li>
-
-                                <li>
-                                    <a href="about-me.html">About Me</a>
-                                </li>
-
-                                <li class="dropdown collapse">
-                                    <a class="dropdown-toggle" href="#">Projects</a>
-                                    <div class="dropdown-menu">
-                                        <a href="OB-individual-project.html">OneBook</a>
-                                        <a href="SC-individual-project.html">Serenity Cafe</a>
-                                        <a href="projects.html">See All Projects</a>
-                                    </div>
-                                </li>
-                                <li class="active">
-                                    <a href="contact-me.html">Contact Me <span class="sr-only">(current)</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+               <!-- NAV -->
+               <div class="container-fluid webNav">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <nav class="navbar">
+                            <a class="navbar-brand" href="index.html">Caring Compassionate Hearts & Helping Hands</a>
+                            <button class="navbar-toggler" type="button" data-target="#navigation">
+                                <span class="fa-solid fa-bars"></span>
+                            </button>
+    
+                            <div class="navigation collapse" id="navigation">
+                                <ul class="navbar-nav">
+                                    <li class="active">
+                                        <a href="index.html">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+    
+                                    <li>
+                                        <a href="about-page.html">About</a>
+                                    </li>
+    
+                                    <li>
+                                        <a href="events-page.html">Events</a>
+                                    </li>
+    
+                                    <li class="dropdown collapse">
+                                        <a class="dropdown-toggle" href="#">Ways to Help</a>
+                                        <div class="dropdown-menu">
+                                            <a href="#">Partnerships</a>
+                                            <a href="donate-resources.html">Donate Resources</a>
+                                            <a href="volunteer.html">Volunteer</a>
+                                            <a href="ways-to-help.html">See All</a>
+                                        </div>
+                                    </li>
+    
+                                    <li class="dropdown collapse">
+                                        <a class="dropdown-toggle" href="#">Programs</a>
+                                        <div class="dropdown-menu">
+                                            <a href="food-assistance-page.html">Food Assistance</a>
+                                            <a href="#">Request Assistance</a>
+                                            <a href="all-programs.html">See All</a>
+                                        </div>
+                                    </li>
+    
+                                    <!-- <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li> -->
+    
+                                    <li>
+                                        <a href = "#" class = "btn btn-secondary btn-donate">Donate</a>
+                                    </li>
+                                </ul>
+    
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- END OF NAV -->
 
         <div class = "container topContainer">
             <div class = "row">
@@ -112,21 +131,22 @@
 
         <!-- FOOTER -->
 
-        <footer>
+        <footer class = "fluid-footer">
             <div class="container company-details">
                 <div class="row">
                     <div class="col-md-9 col-lg-4">
-                        <h3>Ivy Nguyen's Portfolio</h3>
-                        <p>Ivy Nguyen is an undergraduate student at the University of Texas at Arlington who is pursuing a career in User Interface
-                            Design. To stay updated, please subscribe at the form to the right.
-                        </p>
+                        <h3>Caring Compassionate Hearts & Helping Hands</h3>
+                        <p> "When Jesus looked on the multitudes of people with all their problems, sickness, and confusion, 
+                            he was moved with compassion for them..." Matthew 9:36</p>
                     </div>
                     <div class="col-md-3 col-lg-2">
                         <h4>Menu</h4>
                         <ul class="unstyled footer-nav">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="projects.html">Articles</a></li>
-                            <li><a href="contact-me.html">Get In Touch</a></li>
+                            <li><a href="ways-to-help.html">Ways to Help</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="error-404.html">404 Error</a></li>
+                            <li><a href="error-500.html">500 Error</a></li>
                         </ul>
                     </div>
                     <div class="col-md-12 col-lg-6">
@@ -138,7 +158,7 @@
                                     <input type="email" name="subscribe" id="subscribe" class="form-control" required />
                                 </div>
                             </div>
-                            <input class="btn btn-secondary" type="submit" name="subscribe" id="subcribe" value="Subscribe"/>
+                            <input class="btn btn-secondary" type="submit" name="subscribe" id="subcribe" value="Subscribe" />
                         </form>
                     </div>
                 </div>
@@ -152,9 +172,7 @@
                         <div class="col-md-4">
                             <ul class="inline social-media">
                                 <li><a href="https://www.facebook.com/" title = "Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i><span class = "sr-only">Facebook</span></a></li>
-                                <li><a href="https://twitter.com/" title = "Twitter" target="_blank"><i class="fa-brands fa-twitter"></i><span class = "sr-only">Twitter</span></a></li>
-                                <li><a href="https://www.linkedin.com/in/vy-nguyen-aa5758253/" title = "Ivy Nguyen LinkedIn" target="_blank"><i class="fa-brands fa-linkedin-in"><span class = "sr-only">LinkedIn/span></i></a></li>
-                                <li><a href="https://www.youtube.com/" title = "YouTube" target="_blank"><i class="fa-brands fa-youtube"></i><span class = "sr-only">YouTube</span></a></li>
+                                <li><a href="mailto:c3hprs@yahoo.com" title = "E-Mail" target="_blank"><i class="fa-solid fa-envelope"></i><span class = "sr-only">E-Mail</span></a></li>
                                 <li><a href="tel: 1800-999-9999" title = "Telephone" target="_blank"><i class="fa-solid fa-phone"></i><span class = "sr-only">Telephone</span></a></li>
                             </ul>
                         </div>
