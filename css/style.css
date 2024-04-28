@@ -1342,6 +1342,21 @@ img {
     margin: 0;
 }
 
+.funds-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.funds-center h3 {
+    margin: 0;
+}
+
+.funds-center a {
+    margin-bottom: 2rem;
+}
+
 .light-purple h2 {
     color: var(--gray-4);
 }
@@ -1390,6 +1405,10 @@ img {
     max-width: 60%;
 }
 
+.hero-text p {
+    font-weight: bold;
+}
+
 .mission {
     display: flex;
     justify-content: center;
@@ -1435,6 +1454,7 @@ img {
     padding-top: 2rem;
     padding-bottom: 2rem;
     border-radius: 10px;
+    margin-top: 3rem;
 }
 
 .gray {
@@ -1705,7 +1725,10 @@ img {
 
 /* Events Page */
 
-
+.event p {
+    margin-bottom: .8rem;
+    margin-top: .8rem;
+}
 
 
 /* End of Events Page */
