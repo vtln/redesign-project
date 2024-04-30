@@ -1327,6 +1327,7 @@ img {
 
 .p-container {
     max-width: 40ch;
+    /* text-align: center; */
 }
 
 .program-perks {
@@ -1360,6 +1361,7 @@ img {
 .light-purple h2 {
     color: var(--gray-4);
 }
+
 /* End of Universal */
 
 /* Index Page */
@@ -1460,8 +1462,12 @@ img {
 .gray {
     background-color: var(--gray-4);
     border-radius: 10px;
-    border: 2px solid var(--gray-3);
+    /* border: 2px solid var(--gray-3); */
     margin-top: 2.5rem;
+}
+
+.align {
+    margin-top: 2rem;
 }
 
 .light-purple {
@@ -1516,6 +1522,7 @@ img {
 
 .hero-small-text {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -1524,6 +1531,11 @@ img {
     position: relative; 
     z-index: 2; 
     width: 100%;
+}
+
+.hero-small-text p {
+    font-weight: bold;
+    margin-top: 0;
 }
 
 .about {
@@ -1549,7 +1561,8 @@ img {
 @media screen and (max-width: 990px) {
     .about {
         width: 100%;
-        margin-bottom: 5rem;
+        /* margin-bottom: 5rem; */
+        justify-content: center;
     }
 
     .container.center {
@@ -1574,12 +1587,15 @@ img {
         margin-top: 0;
     }
 
-    /* .item-center {
+    .item-center {
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 100%;
-    } */
+    }
+
+    .fa-types {
+    }
 
 }
 
@@ -1626,7 +1642,7 @@ img {
 /* Volunteer Page  */
 
 .volunteer-hero {
-    background-image: url(/images/7.jpg);
+    background-image: url(/images/volunteer-1.png);
 }
 
 .event-date h2, .event-date h3 {
@@ -1670,6 +1686,25 @@ img {
     height: 40vh;
 }
 
+.fa-types {
+    margin-bottom: 0;
+    margin-top: 1rem;
+    width: 100%;
+    height: 30vh;
+}
+
+.fa-types p {
+    margin-top: .8rem;
+    margin-bottom: .5rem;
+    max-width: 40ch;
+}
+
+.fa-circle-check {
+    color: var(--gray-1);
+    margin-right: .3rem;
+    margin-top: 0;
+}
+
 /* End of Volunteer Page */
 
 /* Donate Resources Page */
@@ -1682,8 +1717,8 @@ img {
     border-radius: 10px;
     padding-left: 0;
     padding-right: 1rem;
-    width: 100%;
-    height: 40vh; 
+    width: 100%; 
+    margin-top: 0;
 }
 
 .r-spacing {
@@ -1708,7 +1743,7 @@ img {
 }
 
 .error img {
-    width: 80%;
+    width: 70%;
 }
 
 .error-img {
@@ -1732,6 +1767,47 @@ img {
 
 
 /* End of Events Page */
+
+/* Media Queries */
+
+@media screen and (min-width: 992px) {
+    .error-500 {
+        margin-top: 10rem;
+        margin-bottom: 4rem;
+    }
+}
+
+/* End of Media Queries */
+
+
+
+/* Hero Images */
+
+.events-hero {
+    background-image: url(/images/group-photo-1.png);
+}
+
+.food-pantry-hero {
+    background-image: url(/images/group-photo-3.png);
+}
+
+.partnership-hero {
+    background-image: url(/images/group-photo-4.png);
+}
+
+.donate-funds-hero {
+    background-image: url(/images/resources-3.png);
+}
+
+.donate-resources-hero {
+    background-image: url(/images/resources-1.png);
+}
+
+.food-assistance-hero {
+    background-image: url(/images/community-1.png);
+}
+
+/* End of Hero Images */
 
 /* End of Ivy's Styles */
 
